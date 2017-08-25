@@ -99,11 +99,14 @@ public class MainActivity extends AppCompatActivity {
         newCalculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                splitTip();
 
                 if(splitSwitch.isChecked()){
                     newTotalView.setVisibility(View.VISIBLE);
                     splitTotal();
+                    splitTip();
+                } else {
+                    splitTip();
+                    newTotalView.setVisibility(View.INVISIBLE);
                 }
             }
         }); // newCalculateButton onClick()
