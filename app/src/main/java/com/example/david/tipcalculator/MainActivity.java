@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView newTipView;
     private TextView newTotalView;
     private Switch splitSwitch;
+    private float splitResultTip;
+    private float splitResultTotal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,14 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 tipPercent = tipPercent/100;
                 //Log.d("Tip", "onStopTrackingTouch: " + tipPercent);
             }
-        });
-
-        calculateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+        }); // tipBar.onSeek()
 
         /* Calculate Button onClick:
             - Calculates tip and total
@@ -96,14 +91,24 @@ public class MainActivity extends AppCompatActivity {
                 splitProgress.setVisibility(View.VISIBLE);
                 newCalculateButton.setVisibility(View.VISIBLE);
                 newTipView.setVisibility(View.VISIBLE);
-                newTotalView.setVisibility(View.VISIBLE);
                 splitSwitch.setVisibility(View.VISIBLE);
             }
-        });
+        }); // calculateButton.onClick()
 
         // Split Tip/Total Button onClick
+        newCalculateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                splitTip();
 
-        // Split Tip/Total Seek Bar onClick
+                if(splitSwitch.isChecked()){
+                    newTotalView.setVisibility(View.VISIBLE);
+                    splitTotal();
+                }
+            }
+        }); // newCalculateButton onClick()
+
+        // Split Tip/Total Seek Bar onSeek
         splitBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -119,26 +124,21 @@ public class MainActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
                 splitNum = seekBar.getProgress();
             }
-        });
-
-        // Split The Total? Switch onClick
-
-
-
+        }); // splitBar.onSeek()
 
     } // onCreate()
-
-
 
 
     // Methods
 
     public void splitTip() {
-
+        splitResultTip = resultTip/splitNum;
+        newTipView.setText(String.format("Tip Per Person: $%.2f", splitResultTip));
     }
 
     public void splitTotal() {
-
+        splitResultTotal = resultTotal/splitNum;
+        newTotalView.setText(String.format("Total Per Person: $%.2f", splitResultTotal));
     }
 
     public void calculateTip() {
