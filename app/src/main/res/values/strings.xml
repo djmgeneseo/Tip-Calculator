@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Tip Calculator</string>
+    <string name="calculate_button">Calculate</string>
+    <string name="tip_prompt">Tip Percentage</string>
+    <string name="enter_bill">Enter Bill Here</string>
+    <string name="people_prompt">Split The Tip</string>
+    <string name="split_total">Split The Total?</string>
+
+</resources>
