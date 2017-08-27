@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private Switch splitSwitch;
     private float splitResultTip;
     private float splitResultTotal;
+    private TextView splitPeopleMin;
+    private TextView splitPeopleMax;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         newTipView = (TextView) findViewById(R.id.newTipView);
         newTotalView = (TextView) findViewById(R.id.newTotalView);
         splitSwitch = (Switch) findViewById(R.id.splitSwitch);
+        splitPeopleMin = (TextView) findViewById(R.id.splitPeopleMin);
+        splitPeopleMax = (TextView) findViewById(R.id.splitPeopleMax);
 
 
         // Seek Bar onClick
@@ -92,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
                 newCalculateButton.setVisibility(View.VISIBLE);
                 newTipView.setVisibility(View.VISIBLE);
                 splitSwitch.setVisibility(View.VISIBLE);
+                splitPeopleMin.setVisibility(View.VISIBLE);
+                splitPeopleMax.setVisibility(View.VISIBLE);
             }
         }); // calculateButton.onClick()
 
