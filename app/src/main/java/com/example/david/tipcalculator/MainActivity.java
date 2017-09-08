@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         splitPeopleMax = (TextView) findViewById(R.id.splitPeopleMax);
 
 
-        // Seek Bar onClick
+        // Seek Tip Bar onClick
         tipBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
